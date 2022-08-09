@@ -21,10 +21,7 @@ function searchCountries() {
 };
 
 function showOnCountries(name) {
-  // if (name.length === 0) {
-  //   countryList.innerHTML = "";
-  // }
-  if (name.length <= 10) {
+ if (name.length <= 10) {
     const markupName = name.map((country) => {
       return `<li><img src ="${country.flags.svg}" width = "20" heigth = "20"/>
       ${country.name}</.li>`
