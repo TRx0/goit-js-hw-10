@@ -17,14 +17,12 @@ function searchCountries() {
   const inputValue = input.value.trim();
   serviceApi.fetchCountries(inputValue)
     .then(showOnCountries)
+    .then(checkInput)
     .catch((error) => { Notify.failure("Oops, there is no country with that name"), countryList.innerHTML = "", countryInfo.innerHTML = "" });
 };
 
 function showOnCountries(name) {
-  if(input === " ") {
-    cleanMarkup()
-    return;
-}  
+
  if (name.length <= 10) {
   
     const markupName = name.map((country) => {
@@ -60,6 +58,12 @@ function dataOfCountry(name) {
   }).join("");
   countryInfo.innerHTML = markupData;
 };
+function checkInput(){
+  if(input === "") {
+    cleanMarkup()
+    return;
+}  
+}
 
 function cleanMarkup(){
   countryList.innerHTML = "";
