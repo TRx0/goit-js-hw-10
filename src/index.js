@@ -21,7 +21,7 @@ function searchCountries() {
 };
 
 function showOnCountries(name) {
-  if(nameCountry === "") {
+  if(name === "") {
     cleanMarkup()
     return;
 }  
@@ -62,6 +62,6 @@ function dataOfCountry(name) {
 };
 
 function cleanMarkup(){
-  refs.list.innerHTML = "";
-  refs.box.innerHTML = "";
+  countryList.innerHTML = "";
+  input.innerHTML = "";
 }
