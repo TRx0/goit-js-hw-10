@@ -21,7 +21,7 @@ function searchCountries() {
 };
 
 function showOnCountries(name) {
-  if(name === "") {
+  if(input === "") {
     cleanMarkup()
     return;
 }  
