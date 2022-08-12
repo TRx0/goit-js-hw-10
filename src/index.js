@@ -21,7 +21,12 @@ function searchCountries() {
 };
 
 function showOnCountries(name) {
+  if(nameCountry === "") {
+    cleanMarkup()
+    return;
+}  
  if (name.length <= 10) {
+  
     const markupName = name.map((country) => {
       return `<li><img src ="${country.flags.svg}" width = "20" heigth = "20"/>
       ${country.name}</.li>`
@@ -29,6 +34,7 @@ function showOnCountries(name) {
       .join("");
     countryList.innerHTML = markupName;
   }
+
   if (name.length > 10) {
     Notify.info("Too many matches found. Please enter a more specific name.")
     countryList.innerHTML = "";
@@ -39,6 +45,10 @@ function showOnCountries(name) {
   if (name.length > 1) {
     countryInfo.innerHTML = "";
   };
+  if (name.length === 0) {
+    countryInfo.innerHTML = "";
+  };
+ 
 };
 
 function dataOfCountry(name) {
@@ -50,3 +60,8 @@ function dataOfCountry(name) {
   }).join("");
   countryInfo.innerHTML = markupData;
 };
+
+function cleanMarkup(){
+  refs.list.innerHTML = "";
+  refs.box.innerHTML = "";
+}
